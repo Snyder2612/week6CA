@@ -40,5 +40,45 @@ function playWar() {
 
     console.log('Player 1 Score: ', player1Score);
     console.log('Player 2 Score:' , player2Score);
+
+if (player1Score > player2Score) {
+    console.log('Player 1 wins!');
+} else if (player1Score < player2Score) {
+    console.log('Player 2 wins!')
+} else {
+    console.log('It is a tie');
+    }
 }
-playWar()
+
+    playWar()
+
+    
+    const chai = require('chai');
+    const expect = chai.expect;
+    
+    const { createDeck } = require('./week6CA/index.js'); // Replace with the actual file path containing the functions.
+    
+    describe('createDeck', () => {
+      it('should create a deck of 52 cards', () => {
+        const deck = createDeck();
+        expect(deck).to.have.lengthOf(52);
+      });
+    
+      it('should contain unique cards', () => {
+        const deck = createDeck();
+        const cardSet = new Set(deck.map(card => `${card.value} ${card.suit}`));
+        expect(cardSet.size).to.equal(52);
+      });
+    
+      it('should contain valid card values and suits', () => {
+        const deck = createDeck();
+        const validValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        const validSuits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+    
+        for (const card of deck) {
+          expect(validValues).to.include(card.value);
+          expect(validSuits).to.include(card.suit);
+        }
+      });
+    });
+    

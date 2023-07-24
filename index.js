@@ -56,7 +56,7 @@ if (player1Score > player2Score) {
     const chai = require('chai');
     const expect = chai.expect;
     
-    const { createDeck } = require('./week6CA/index.js'); // Replace with the actual file path containing the functions.
+    const { createDeck } = require('./week6CA/index.js'); 
     
     describe('createDeck', () => {
       it('should create a deck of 52 cards', () => {
